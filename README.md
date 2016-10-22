@@ -7,6 +7,10 @@ You can install this lib directly from github repository by execute these comman
     
     pip install git+ssh://git@github.com/slaveofcode/boilerpipe3@master
 
+Or from official pypi 
+
+    pip install boilerpipe3
+
 Configuration
 =============
 

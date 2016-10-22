@@ -1,13 +1,13 @@
-Metadata-Version: 1.1
-Name: boilerpipe-py3
-Version: 1.2.0.0
-Summary: Python interface to Boilerpipe, Boilerplate Removal and Fulltext Extraction from HTML pages with Python 3 support
-Home-page: https://github.com/sorpaas/python-boilerpipe/
-Author: sorpa'as plat
-Author-email: sorpaas@gmail.com
+Metadata-Version: 1.0
+Name: boilerpipe3
+Version: 1.0
+Summary: A fork of boilerpipe with python 3 with a small fixes, ported from source `https://pypi.python.org/pypi/boilerpipe-py3
+Home-page: https://github.com/slaveofcode/boilerpipe3
+Author: Aditya Kresna Permana
+Author-email: zeandcode@gmail.com
 License: Apache 2.0
 Description: UNKNOWN
-Keywords: boilerpipe
+Keywords: boilerpipe, bolierpipe3
 Platform: UNKNOWN
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: Console

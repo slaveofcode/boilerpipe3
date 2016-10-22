@@ -14,19 +14,13 @@ if sys.version_info[0] < 3:
     print("For a Python 2 version, see:\nhttps://github.com/misja/python-boilerpipe")
     sys.exit(1)
 
-__version__ = '1.1'
+__version__ = '1.2'
 boilerpipe_version = '1.2.0'
 DATAPATH = join(abspath(dirname((__file__))), 'src/boilerpipe/data')
 
 
 def download_jars(datapath, version=boilerpipe_version):
-    tgz_url = 'https://github.com/slaveofcode/boilerpipe3/raw/master/boilerpipe-{0}-bin.tar.gz'.format(version)
-    tgz_name = basename(tgz_url)
-
-    if not exists(tgz_name):
-        downloaded = urlretrieve(tgz_url, tgz_name)
-        tgz_name = downloaded[0]
-
+    tgz_name = 'boilerpipe-{0}-bin.tar.gz'.format(version)
     tar = tarfile.open(tgz_name, mode='r:gz')
     for tarinfo in tar.getmembers():
         if not fnmatch(tarinfo.name, '*.jar'):
