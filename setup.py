@@ -20,10 +20,7 @@ DATAPATH = join(abspath(dirname((__file__))), 'src/boilerpipe/data')
 
 
 def download_jars(datapath, version=boilerpipe_version):
-    tgz_url = 'https://boilerpipe.googlecode.com/files/boilerpipe-{0}-bin.tar.gz'.format(version)
-    tgz_name = basename(tgz_url)
-    if not exists(tgz_name):
-        urlretrieve(tgz_url, tgz_name)
+    tgz_name = 'boilerpipe-{0}-bin.tar.gz'.format(version)
     tar = tarfile.open(tgz_name, mode='r:gz')
     for tarinfo in tar.getmembers():
         if not fnmatch(tarinfo.name, '*.jar'):
