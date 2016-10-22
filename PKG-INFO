@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: boilerpipe-py3
+Version: 1.2.0.0
+Summary: Python interface to Boilerpipe, Boilerplate Removal and Fulltext Extraction from HTML pages with Python 3 support
+Home-page: https://github.com/sorpaas/python-boilerpipe/
+Author: sorpa'as plat
+Author-email: sorpaas@gmail.com
+License: Apache 2.0
+Description: UNKNOWN
+Keywords: boilerpipe
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Natural Language :: English
