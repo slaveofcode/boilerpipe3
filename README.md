@@ -33,16 +33,12 @@ The constructor takes a keyword argment ``extractor``, being one of the availabl
 
 If no extractor is passed the DefaultExtractor will be used by default. Additional keyword arguments are either ``html`` for HTML text or ``url``.
 
-::
-
     from boilerpipe.extract import Extractor
     extractor = Extractor(extractor='ArticleExtractor', url=your_url)
 
 Then, to extract relevant content:
 
-::
-
-	extracted_text = extractor.getText()
+    extracted_text = extractor.getText()
 	
-	extracted_html = extractor.getHTML()
+    extracted_html = extractor.getHTML()
 
