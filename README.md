@@ -5,7 +5,7 @@ Installation
 ============
 You can install this lib directly from github repository by execute these command
     
-    pip install git+ssh://git@github.com/slaveofcode/boilerpipe3@master
+    pip install git+ssh://git@github.com/derlin/boilerpipe3@master
 
 Or from official pypi 
 
@@ -35,14 +35,22 @@ The constructor takes a keyword argment ``extractor``, being one of the availabl
 - NumWordsRulesExtractor
 - CanolaExtractor
 
-If no extractor is passed the DefaultExtractor will be used by default. Additional keyword arguments are either ``html`` for HTML text or ``url``.
+If no extractor is passed the DefaultExtractor will be used by default.
 
     from boilerpipe.extract import Extractor
-    extractor = Extractor(extractor='ArticleExtractor', url=your_url)
+    extractor = Extractor(extractor='ArticleExtractor')
 
-Then, to extract relevant content:
+Once you get an extractor instance, extract relevant content using one of `getText`, `getHTML`. Each one accepts one of the following arguments: 
 
-    extracted_text = extractor.getText()
+- `url`: the url of the page
+- `html`: an html string to parse
+
+Example:
+
+    extracted_text = extractor.getText(url=your_url)
 	
-    extracted_html = extractor.getHTML()
+    extracted_html = extractor.getHTML(url=your_url)
 
+To extract images, first parse the page|html string using `get` (same arguments as above + returns the parsed source and metadata), then call `getImages`. Oneline:
+
+    extracted_images = extractor.getImages(*extractor.get(url=url))
