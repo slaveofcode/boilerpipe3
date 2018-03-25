@@ -66,9 +66,18 @@ class Extractor(object):
 
     @thread_safe
     def getText(self, url=None, html=None):
-        print("getting text ", url)
         source, data = self._process(html=html, url=url)
         return source.getContent()
+
+    @thread_safe
+    def getTextBlocks(self, url=None, html=None):
+        source, data = self._process(html=html, url=url)
+        blocks = source.getTextBlocks()
+        results = []
+        for i in range(blocks.size()):
+            if blocks[i].isContent():
+                results.append(blocks[i].getText())
+        return results
 
     @thread_safe
     def getHTML(self, url=None, html=None):
