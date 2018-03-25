@@ -58,8 +58,14 @@ class Extractor(object):
                     jpype.attachThreadToJVM()
             lock.acquire()
             
-            self.extractor = jpype.JClass(
-                "de.l3s.boilerpipe.extractors."+extractor).INSTANCE
+            if extractor == "KeepEverythingWithMinKWordsExtractor":
+                # handle argument
+                kMin = kwargs.get("kMin", 1)  # set default to 1
+                self.extractor = jpype.JClass(
+                        "de.l3s.boilerpipe.extractors."+extractor)(kMin)
+            else:
+                self.extractor = jpype.JClass(
+                    "de.l3s.boilerpipe.extractors."+extractor).INSTANCE
         finally:
             lock.release()
     
