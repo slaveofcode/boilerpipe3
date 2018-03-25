@@ -15,12 +15,12 @@ if sys.version_info[0] < 3:
     sys.exit(1)
 
 __version__ = '1.1'
-boilerpipe_version = '1.2.0'
+boilerpipe_version = '1.2.1'
 DATAPATH = join(abspath(dirname((__file__))), 'src/boilerpipe/data')
 
 
 def download_jars(datapath, version=boilerpipe_version):
-    tgz_url = 'https://github.com/slaveofcode/boilerpipe3/raw/master/boilerpipe-{0}-bin.tar.gz'.format(version)
+    tgz_url = 'https://github.com/derlin/boilerpipe3/raw/master/boilerpipe-{0}-bin.tar.gz'.format(version)
     tgz_name = basename(tgz_url)
 
     if not exists(tgz_name):
