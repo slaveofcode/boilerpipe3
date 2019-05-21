@@ -44,7 +44,7 @@ setuptools.setup(
     author_email='lucy.derlin@gmail.com',
     url='https://github.com/derlin/boilerpipe3',
 
-    packages=setuptools.find_packages(),
+    packages=['boilerpipe'],
     package_data={
         'boilerpipe': [
             'data/boilerpipe-{version}/boilerpipe-{version}.jar'.format(version=boilerpipe_version),
