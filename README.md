@@ -7,17 +7,6 @@ You can install this lib directly from github repository by execute these comman
     
     pip install git+ssh://git@github.com/derlin/boilerpipe3@master
 
-Or from official pypi 
-
-    pip install boilerpipe3
-
-Configuration
-=============
-
-Dependencies:
-jpype, charade
-
-The boilerpipe jar files will get fetched and included automatically when building the package.
 
 Usage
 =====
@@ -40,17 +29,25 @@ If no extractor is passed the DefaultExtractor will be used by default.
     from boilerpipe.extract import Extractor
     extractor = Extractor(extractor='ArticleExtractor')
 
-Once you get an extractor instance, extract relevant content using one of `getText`, `getHTML`. Each one accepts one of the following arguments: 
+Once you get an extractor instance, extract relevant content using one of `getText`, `getHTML`, `getTextBlock`, `getImages`. Each one accepts one of the following arguments: 
 
 - `url`: the url of the page
 - `html`: an html string to parse
+- `processed`: the `(source, data)` returned by the method `get`.
+
 
 Example:
 
     extracted_text = extractor.getText(url=your_url)
 	
     extracted_html = extractor.getHTML(url=your_url)
+    
+If you need multiple information, you can save some computation time by doing:
 
-To extract images, first parse the page|html string using `get` (same arguments as above + returns the parsed source and metadata), then call `getImages`. Oneline:
+    processed = extractor.get(url=url) # download and process once
+    
+    text = extractor.getText(processed=processed)
+    text_blocks = extractor.getTextBlocks(processed=processed)
+    html = extractor.getHTML(processed=processed)
+    images = extractor.getImages(processed=processed)
 
-    extracted_images = extractor.getImages(*extractor.get(url=url))
