@@ -5,19 +5,8 @@ Installation
 ============
 You can install this lib directly from github repository by execute these command
     
-    pip install git+ssh://git@github.com/slaveofcode/boilerpipe3@master
+    pip install git+ssh://git@github.com/derlin/boilerpipe3@master
 
-Or from official pypi 
-
-    pip install boilerpipe3
-
-Configuration
-=============
-
-Dependencies:
-jpype, charade
-
-The boilerpipe jar files will get fetched and included automatically when building the package.
 
 Usage
 =====
@@ -35,14 +24,30 @@ The constructor takes a keyword argment ``extractor``, being one of the availabl
 - NumWordsRulesExtractor
 - CanolaExtractor
 
-If no extractor is passed the DefaultExtractor will be used by default. Additional keyword arguments are either ``html`` for HTML text or ``url``.
+If no extractor is passed the DefaultExtractor will be used by default.
 
     from boilerpipe.extract import Extractor
-    extractor = Extractor(extractor='ArticleExtractor', url=your_url)
+    extractor = Extractor(extractor='ArticleExtractor')
 
-Then, to extract relevant content:
+Once you get an extractor instance, extract relevant content using one of `getText`, `getHTML`, `getTextBlock`, `getImages`. Each one accepts one of the following arguments: 
 
-    extracted_text = extractor.getText()
+- `url`: the url of the page
+- `html`: an html string to parse
+- `processed`: the `(source, data)` returned by the method `get`.
+
+
+Example:
+
+    extracted_text = extractor.getText(url=your_url)
 	
-    extracted_html = extractor.getHTML()
+    extracted_html = extractor.getHTML(url=your_url)
+    
+If you need multiple information, you can save some computation time by doing:
+
+    processed = extractor.get(url=url) # download and process once
+    
+    text = extractor.getText(processed=processed)
+    text_blocks = extractor.getTextBlocks(processed=processed)
+    html = extractor.getHTML(processed=processed)
+    images = extractor.getImages(processed=processed)
 
