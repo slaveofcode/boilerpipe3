@@ -14,7 +14,7 @@ if sys.version_info[0] < 3:
     print("For a Python 2 version, see:\nhttps://github.com/misja/python-boilerpipe")
     sys.exit(1)
 
-__version__ = '1.1'
+__version__ = '1.3'
 boilerpipe_version = '1.2.0'
 DATAPATH = join(abspath(dirname((__file__))), 'src/boilerpipe/data')
 
